@@ -1,20 +1,31 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+// In App.js in a new project
 
-export default function App() {
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import HomeScreen from './screens/HomeScreen'
+import Cart from "./screens/Cart"
+import { CartContextProvider } from './context/CartContext';
+//import { CartContextProvider } from "./context/CartContext"
+
+const Tab = createBottomTabNavigator();
+
+function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <CartContextProvider>
+      <NavigationContainer>
+        <Tab.Navigator>
+          <Tab.Screen 
+              name="HomeScreen" 
+              component={HomeScreen} 
+              options= {
+                  { headerShown : false }}
+              />
+          <Tab.Screen name="Cart" component={Cart} />
+        </Tab.Navigator>
+      </NavigationContainer>
+    </CartContextProvider>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
