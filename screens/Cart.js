@@ -1,13 +1,17 @@
 import  React, { useContext } from 'react';
 import { View, Text } from 'react-native';
+import { Button } from 'react-native-web';
 import { CartContext } from '../context/CartContext'
 
-export default function Cart() {
+export default function Cart({ route , navigation }) {
 
-  const { name } = useContext(CartContext)
+  const { items } = useContext(CartContext)
+  
+  console.log(items)
   return (
     <View>
-      <Text>Cart owned by {name}</Text>
+      <Button title="go back" onPrerss={() => navigation.push("Home") }/>
+      <Text>Cart owned by</Text>
     </View>
   );
 }

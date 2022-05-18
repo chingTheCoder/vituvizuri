@@ -5,6 +5,7 @@ import Profile from "./Profile"
 import Content from './Content'
 import Men from './Men';
 import Women from './Women';
+import Cart from './Cart';
 const Stack  = createNativeStackNavigator()
 
 export default function HomeScreen() {
@@ -22,10 +23,6 @@ export default function HomeScreen() {
         <Stack.Screen
           name="ProductPage"
           component={ProductPage}
-        />
-        <Stack.Screen
-          name="Profile"
-          component={Profile}
         />
         <Stack.Screen
           name="Men"

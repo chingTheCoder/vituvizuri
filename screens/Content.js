@@ -27,7 +27,7 @@ export default function Content ({ route, navigation }) {
 
 
   const renderItem = ( item ) => (
-    <ProductListItem  product = {item.item.product}/>  
+    <ProductListItem  product = {item.item.product} navigation={navigation}/>  
   )
   
   return (

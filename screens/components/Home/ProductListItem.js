@@ -7,10 +7,18 @@ let WIDTH = Dimensions.get("window").width / 2
 export default function ProductListItem ( props) {
 
     // console.log(props.product)
-    let { productName, productPrice , productImage } = props.product
+    let { productName, productDescription, productPrice , productImage, productColor , productSize } = props.product
+    let  { navigation } = props
     
     return (
-        <TouchableOpacity style={{  width : "50%", padding: 5 }}>
+        <TouchableOpacity style={{  width : "50%", padding: 5 }} onPress={() => navigation.navigate("ProductPage", {
+            productName ,
+            productDescription ,
+            productPrice,
+            productImage,
+            productColor,
+            productSize
+        })}>
                 <View style={
                         {
                             height : 280,
@@ -34,11 +42,8 @@ export default function ProductListItem ( props) {
                         }
                     />
                     <View style={{ height: 80 , padding : 10 , borderBottomRightRadius : 10 , borderBottomLeftRadius : 10 , shadowColor: '#000',
-    shadowOffset: { width: 1, height: 1 },
-    shadowOpacity:  0.3,
-    shadowRadius: 1,
-    elevation: 4}}>
-                        <View style={{ height : 40 , overflow : "hidden"}}>
+                     borderBottomWidth : 1 , borderColor : "whitesmoke" , borderLeftWidth : 1 , borderRightWidth : 1 }}>
+                        <View style={{ height : 38 , overflow : "hidden"}}>
                             <Text>{productName}</Text>
                         </View>
                         <Text style={{ color : "rgb(255, 102, 102)" , fontWeight : "700" }}>{productPrice}</Text>
