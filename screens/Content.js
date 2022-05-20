@@ -30,9 +30,19 @@ export default function Content ({ route, navigation }) {
     <ProductListItem  product = {item.item.product} navigation={navigation}/>  
   )
   
+  let x = 0
+  
   return (
-  <ScrollView style={ { paddingTop : 30 , backgroundColor : "white"}}>
-      <TopHeader route={ route } navigation={navigation}/>
+  <ScrollView style={ { paddingTop : 30 , backgroundColor : "white"}}> 
+  
+    {
+
+
+      products.length === 0 ? <View><Text>hello</Text></View> :
+
+     <>
+     
+     <TopHeader route={ route } navigation={navigation}/>
       <Carousel/>
       {/* trending */}
       <View style={{ marginVertical : 10, marginLeft : 10 }}>
@@ -45,6 +55,11 @@ export default function Content ({ route, navigation }) {
         keyExtractor={ item => item.id }
         renderItem={renderItem}
       />
+     </>
+        
+
+    }
+      
   </ScrollView>)
 }
 

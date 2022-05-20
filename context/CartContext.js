@@ -6,11 +6,12 @@ export const CartContextProvider = ({children}) => {
 
     const [ items , setItems ] = useState([])
    
-    const addToCart = (productName , productPrice, productImage) =>{
+    const addToCart = (productName , productPrice, productImage, productQuantity) =>{
         setItems((prevState) => [...prevState , {
             productName,
             productPrice,
-            productImage
+            productImage,
+            productQuantity 
         }])
     }
 

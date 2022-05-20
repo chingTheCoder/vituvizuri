@@ -30,7 +30,7 @@ export default function ProductPage({ route , navigation }) {
       {/* buttons are down here */}
       <View style={{ paddingHorizontal : 10 , marginTop : 10 }}>
         <TouchableHighlight onPress={() => {
-          addToCart( productName , productPrice, productImage )
+          addToCart( productName , productPrice, productImage, 1 )
           navigation.navigate("Cart")
           }} style={{ backgroundColor : "rgb(255, 102, 102)", height : 50 , borderRadius : 10 , justifyContent : "center" , alignItems : "center"}}>
               <Text style={{ fontWeight : "700" , color : "white"}}>NUNUA</Text>

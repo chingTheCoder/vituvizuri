@@ -1,10 +1,14 @@
-import  React, { useContext } from 'react';
-import { View, Text, ScrollView, Image, Pressable } from 'react-native';
+import  React, { useContext, useState } from 'react';
+import { View, Text, ScrollView, Image, FlatList, Pressable, Modal } from 'react-native';
 import { CartContext } from '../context/CartContext'
+import  CartItem from "./components/Cart/CartItem.js"
+import OrderButton from "./components/Cart/OrderButton.js"
+import Checkout from "./Checkout.js"
 
 export default function Cart({ route , navigation }) {
 
   const { items } = useContext(CartContext)
+  const [ popUp, setPopUp ]  = useState(false)
   
   console.log(items)
   if (items.length === 0) {
@@ -13,7 +17,13 @@ export default function Cart({ route , navigation }) {
       )
   }else {
       return (
-        <CartItems items={items}/>
+        <>
+          <Modal visible={popUp}>
+              <Checkout setPopUp={setPopUp}/>
+          </Modal>
+          <CartItems items={items}/>
+          <OrderButton setPopUp={setPopUp}/>
+        </>
       )
   }
 }
@@ -27,64 +37,22 @@ function EmptyCart () {
   )
 }
 
+// const renderItem = ( item ) => {
+//       <CartItem item={item}>
+// }
+
+const renderItem =  item  => (<CartItem item={item}/>) 
 
 function CartItems (props) {
 
-  const product = props.items
-  console.log(product)
+  const products = props.items
+  //console.log(products) 
   return (
-    <ScrollView style={{ paddingHorizontal : 10 , paddingVertical : 10 }}>
-        <View style={{ flexDirection : "row" , backgroundColor : "white"}}>
-            <View style={{ width : "25%"}}>
-              <Image
-                source={{ uri : product[0].productImage }}
-                style={{
-                    width : "100%",
-                    height : 100,
-                    borderRadius : 10
-                }}
-              />
-            </View>
-            <View style={{ width : "60%", paddingLeft : 5 , height : 100, paddingTop : 10 }}>
-                <Text style={{ fontSize : 16 , fontWeight : "700",height : 40, overflow : "hidden" }}>{product[0].productName}</Text>
-                <Text style={{ height : 20 , color : "rgb(255, 102, 102)"}}>{product[0].productPrice}</Text>
-                <Text>Quantity : 1 </Text>
-            </View>
-            <View style={{ width : "15%", paddingHorizontal : 5}} >
-                <Pressable 
-                   style={({pressed}) => [
-                    {
-                      backgroundColor: pressed ? 'rgb(255, 102, 102)' : 'white',
-                    },
-                    {
-                      borderRadius : 10,
-                      height : 40,
-                      justifyContent : "center",
-                      alignItems : "center",
-                      borderColor : "rgba(255, 102, 102, 0.5)",
-                      borderWidth : 1,
-                      marginTop : 5
-                    },
-                  ]}
-                ><Text style={{ fontSize : 20 }}>+</Text></Pressable>
-                 <Pressable
-                      style={({pressed}) => [
-                        {
-                          backgroundColor: pressed ? 'rgb(255, 102, 102)' : 'white',
-                        },
-                        {
-                          borderRadius : 10,
-                          height : 40,
-                          justifyContent : "center",
-                          alignItems : "center",
-                          borderColor : "rgba(255, 102, 102, 0.5)",
-                          borderWidth : 1,
-                          marginTop : 10
-                        },
-                      ]} 
-                 ><Text style={{ fontSize : 20 }}>-</Text></Pressable>
-            </View>
-        </View>
-    </ScrollView>
+    <FlatList
+        style={{ paddingHorizontal : 10 }}
+        keyExtractor={ (item) => item.productImage }
+        data={products}
+        renderItem={renderItem}
+    />
   )
 }
