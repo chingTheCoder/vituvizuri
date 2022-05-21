@@ -7,10 +7,11 @@ import Checkout from "./Checkout.js"
 
 export default function Cart({ route , navigation }) {
 
-  const { items } = useContext(CartContext)
+  const { items, totalCost } = useContext(CartContext)
   const [ popUp, setPopUp ]  = useState(false)
   
-  console.log(items)
+  const totalProducts = items.length
+
   if (items.length === 0) {
       return (
         <EmptyCart/>
@@ -22,7 +23,7 @@ export default function Cart({ route , navigation }) {
               <Checkout setPopUp={setPopUp}/>
           </Modal>
           <CartItems items={items}/>
-          <OrderButton setPopUp={setPopUp}/>
+          <OrderButton setPopUp={setPopUp}  totalProducts={totalProducts} totalCost={totalCost} />
         </>
       )
   }
@@ -37,9 +38,7 @@ function EmptyCart () {
   )
 }
 
-// const renderItem = ( item ) => {
-//       <CartItem item={item}>
-// }
+
 
 const renderItem =  item  => (<CartItem item={item}/>) 
 

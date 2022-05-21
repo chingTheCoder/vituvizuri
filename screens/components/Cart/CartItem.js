@@ -1,9 +1,13 @@
-import React from "react"
+import React, { useContext } from "react"
 import { View , Pressable , Image, Text } from "react-native"
+import { CartContext } from "../../../context/CartContext.js"
 
 export default function CartItem (props) {
 
     let { item } = props.item
+
+    const { items, totalCost , updateTotal} = useContext(CartContext)
+
     return (
         <View style={{ flexDirection : "row" , backgroundColor : "white", marginTop : 10 , borderRadius : 10 }}>
         <View style={{ width : "25%"}}>
@@ -23,6 +27,7 @@ export default function CartItem (props) {
         </View>
         <View style={{ width : "15%", paddingHorizontal : 5}} >
             <Pressable 
+              onPress={() => updateTotal( prevValue => prevValue + Number(item.productPrice))}
               style={({pressed}) => [
                 {
                   backgroundColor: pressed ? 'rgb(255, 102, 102)' : 'white',
@@ -39,6 +44,7 @@ export default function CartItem (props) {
               ]}
             ><Text style={{ fontSize : 20 }}>+</Text></Pressable>
             <Pressable
+                  onPress={() => updateTotal( prevValue => prevValue - Number(item.productPrice))}
                   style={({pressed}) => [
                     {
                       backgroundColor: pressed ? 'rgb(255, 102, 102)' : 'white',

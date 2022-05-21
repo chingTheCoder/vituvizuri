@@ -7,7 +7,7 @@ export default function TopHeader ({ route, navigation }) {
   <View style={{
     backgroundColor : "white"
   }}>
-      <ScrollView horizontal={true} > 
+      <View style={{ flexDirection : "row"}}> 
             <TouchableOpacity style={styles.ic} onPress={() => navigation.navigate("Men")}>
                 <Icon name="man" color="white" size={32}></Icon>
             </TouchableOpacity>
@@ -23,21 +23,21 @@ export default function TopHeader ({ route, navigation }) {
             <TouchableOpacity style={styles.ic}>
                 <Icon name="md-phone-portrait" color="white" size={32}></Icon>
             </TouchableOpacity>
-      </ScrollView>
+      </View>
   </View>)
 }
 
 
 const styles = StyleSheet.create({
     ic : {
-        height : 100,
-        width : 100,
+        width : "20%",
+        height : 85,
         borderWidth: 10,
         borderColor : "white",
         display : "flex",
         alignItems : 'center',
         justifyContent : "center",
-        borderRadius : 100,
+        borderRadius : 20,
         backgroundColor : "#f66"
     }
 })

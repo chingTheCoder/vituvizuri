@@ -1,16 +1,16 @@
 import React from "react"
 import { Pressable , View, Text } from "react-native"
 
-export default function OrderButton (props) {
+export default function OrderButton ( props ) {
     return (
         <View style={{ backgroundColor : "white", padding : 10 }}>
             <View style={{ flexDirection : "row"}}>
-                <View style={{ width : "50%"}}><Text style={{textAlign : "right", fontSize : 18 }}>Number of Products : </Text></View>
-                <View style={{ width : "50%"}}><Text style={{ paddingLeft : 10 , fontSize : 18 }}>0</Text></View>
+                <View style={{ width : "50%"}}><Text style={{textAlign : "right", fontSize : 18 }}>Total Products : </Text></View>
+                <View style={{ width : "50%"}}><Text style={{ paddingLeft : 10 , fontSize : 18 }}>{props.totalProducts}</Text></View>
             </View>
             <View style={{ flexDirection : "row"}}>
-                <View style={{ width : "50%"}}><Text style={{textAlign : "right", fontSize : 18 }}>Total : </Text></View>
-                <View style={{ width : "50%"}}><Text style={{ paddingLeft : 10 , fontSize : 18 }}>0</Text></View>
+                <View style={{ width : "50%"}}><Text style={{textAlign : "right", fontSize : 18 }}>Total Cost : </Text></View>
+                <View style={{ width : "50%"}}><Text style={{ paddingLeft : 10 , fontSize : 18 }}>{props.totalCost}</Text></View>
             </View>
             <Pressable
                   onPress={() => props.setPopUp(true)}
