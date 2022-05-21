@@ -42,7 +42,7 @@ export default function ProductListItem ( props) {
                         }
                     />
                     <View style={{ height: 80 , padding : 10 , borderBottomRightRadius : 10 , borderBottomLeftRadius : 10 , shadowColor: '#000',
-                     borderBottomWidth : 1 , borderColor : "whitesmoke" , borderLeftWidth : 1 , borderRightWidth : 1 }}>
+                     borderBottomWidth : 1 , borderColor : "whitesmoke" , borderLeftWidth : 1 , borderRightWidth : 1 , backgroundColor : "white"}}>
                         <View style={{ height : 38 , overflow : "hidden"}}>
                             <Text>{productName}</Text>
                         </View>

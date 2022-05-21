@@ -2,7 +2,7 @@ import React from 'react'
 import { ScrollView, TouchableOpacity, View, Text, StyleSheet } from 'react-native'
 export default function Carousel () {
     return(
-        <ScrollView style={{ marginTop: 10, marginBottom : 10 , marginLeft : 10 }} horizontal={true}>
+        <ScrollView style={{ paddingTop: 10, paddingBottom : 10 , paddingLeft : 10 , backgroundColor : "white" }} horizontal={true}>
             <CarouselElement/>
             <CarouselElement/>
             <CarouselElement/>

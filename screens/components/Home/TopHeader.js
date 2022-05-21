@@ -5,9 +5,9 @@ import Icon from 'react-native-vector-icons/Ionicons';
 export default function TopHeader ({ route, navigation }) {
  return (
   <View style={{
-    marginLeft: 10 , marginTop: 20
+    backgroundColor : "white"
   }}>
-      <ScrollView horizontal={true}> 
+      <ScrollView horizontal={true} > 
             <TouchableOpacity style={styles.ic} onPress={() => navigation.navigate("Men")}>
                 <Icon name="man" color="white" size={32}></Icon>
             </TouchableOpacity>
