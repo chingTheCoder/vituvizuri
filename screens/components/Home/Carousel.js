@@ -4,7 +4,7 @@ import images from '../../../images.js'
 
 export default function Carousel () {
     return(
-        <ScrollView style={{ paddingTop: 10, paddingBottom : 10 , paddingBottom : 25 , paddingLeft : 10 , backgroundColor : "white" }} horizontal={true}>
+        <ScrollView style={{ paddingTop: 10, paddingBottom : 10 , paddingBottom : 25 , paddingLeft : 10 , marginRight : 10 , backgroundColor : "white" }} horizontal={true}>
             <CarouselElement imageUrl={images.dress}/>
             <CarouselElement imageUrl={images.watch}/>
             <CarouselElement imageUrl={images.bags}/>
@@ -22,7 +22,8 @@ function CarouselElement ({imageUrl}) {
                 style={{
                     height : 320,
                     width : 280,
-                    borderRadius : 10
+                    borderRadius : 10,
+                    resizeMode : "contain"
                 }}
                 source={imageUrl}
            />

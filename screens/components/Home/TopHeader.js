@@ -5,9 +5,13 @@ import Icon from 'react-native-vector-icons/Ionicons';
 export default function TopHeader ({ route, navigation }) {
  return (
   <View style={{
-    backgroundColor : "white"
+      marginTop : 50,
+      backgroundColor : "rgb(255, 102, 102)",
+      marginHorizontal : 10,
+      borderBottomLeftRadius : 10,
+      borderBottomRightRadius : 10
   }}>
-      <View style={{ flexDirection : "row"}}> 
+      <View style={{ flexDirection : "row" }}> 
             <TouchableOpacity style={styles.ic} onPress={() => navigation.navigate("Men")}>
                 <Icon name="man" color="white" size={32}></Icon>
             </TouchableOpacity>
@@ -32,13 +36,13 @@ const styles = StyleSheet.create({
     ic : {
         width : "20%",
         height : 85,
-        borderWidth: 10,
-        borderColor : "white",
+        borderWidth: 0,
+        borderColor :  "rgb(255, 102, 102)",
         display : "flex",
         alignItems : 'center',
         justifyContent : "center",
         borderRadius : 20,
-        backgroundColor : "#f66"
+        backgroundColor : "rgba(0, 0, 0, 0)"
     }
 })
 

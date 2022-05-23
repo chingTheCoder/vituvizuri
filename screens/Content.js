@@ -45,7 +45,7 @@ products.length === 0 ?
       <>
           <SafeAreaView>
                 <FlatList
-                    style={{ marginHorizontal : 5 , marginTop : 30 }}
+                    style={{ }}
                     data={products}
                     numColumns={2}
                     keyExtractor={ item => item.id }
