@@ -1,11 +1,10 @@
 import * as React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import ProductPage from  "./ProductPage"
-import Profile from "./Profile"
 import Content from './Content'
 import Men from './Men';
 import Women from './Women';
-import Cart from './Cart';
+import Apparel from './apparel';
 const Stack  = createNativeStackNavigator()
 
 export default function HomeScreen() {
@@ -29,6 +28,10 @@ export default function HomeScreen() {
           component={Men}
         />
         <Stack.Screen
+          name="Apparel"
+          component={Apparel}
+        />
+         <Stack.Screen
           name="Women"
           component={Women}
         />

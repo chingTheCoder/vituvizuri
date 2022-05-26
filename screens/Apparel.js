@@ -4,22 +4,22 @@ import { getFirestore, query, where , collection, getDocs} from 'firebase/firest
 import { app } from '../src/config'
 import ProductListItem from './components/Home/ProductListItem'
 
-export default function Men({ navigation }) {
+export default function Apparel({ navigation }) {
 
-  const [ womenProducts , updateWomenProducts ] = useState([])
+  const [ apparelProducts , updateApparelProducts ] = useState([])
   const db = getFirestore(app)
-  const q = query(collection(db, "products"), where("productCategory", "==", "women"))
+  const q = query(collection(db, "products"), where("productCategory", "==", "apparel"))
 
   useEffect(() => {
 
-      getWomenProducts()
+      getApparelProducts()
   }, [])
 
 
-  async function getWomenProducts () {
+  async function getApparelProducts () {
 
       let data = await getDocs(q)
-      data.docs.map(doc => updateWomenProducts( arr => [...arr, {id : doc.id , product : doc.data()}]))
+      data.docs.map(doc => updateApparelProducts( arr => [...arr, {id : doc.id , product : doc.data()}]))
 
   }
 
@@ -30,14 +30,14 @@ export default function Men({ navigation }) {
   return (
             <FlatList
                     style={{ }}
-                    data={womenProducts}
+                    data={apparelProducts}
                     numColumns={2}
                     keyExtractor={ item => item.id }
                     renderItem={renderItem}
                     ListHeaderComponent={
                       <>
                         <View style={{ marginVertical : 10, marginLeft : 10 }}>
-                            <Text style={{ fontSize : 20 }}>Bidhaa Za Kike</Text>
+                            <Text style={{ fontSize : 20 }}>Vidokezo</Text>
                         </View>
                       </>
                     }

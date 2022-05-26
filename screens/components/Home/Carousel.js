@@ -20,11 +20,10 @@ function CarouselElement ({imageUrl}) {
         <TouchableOpacity style={styles.ce}>
            <Image
                 style={{
-                    height : 320,
+                    height : 280,
                     width : 280,
                     borderRadius : 10,
-                    resizeMode : "contain"
-                }}
+                    resizeMode : "center"                }}
                 source={imageUrl}
            />
         </TouchableOpacity>

@@ -18,7 +18,7 @@ export default function TopHeader ({ route, navigation }) {
             <TouchableOpacity style={styles.ic} onPress={() => navigation.navigate("Women")}>
                 <Icon name="woman" color="white" size={32}></Icon>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.ic}>
+            <TouchableOpacity style={styles.ic}  onPress={() => navigation.navigate("Apparel")}>
                 <Icon name="watch" color="white" size={32}></Icon>
             </TouchableOpacity>
             <TouchableOpacity style={styles.ic}>
